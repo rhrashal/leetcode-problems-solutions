@@ -27,3 +27,18 @@ VALUES
 -- Select the data from both tables to verify the insertion
 SELECT * FROM customers;
 SELECT * FROM orders;
+
+
+--solve 1 #####################################
+select c.name as Customers 
+from Customers c
+left join orders o on c.id = o.customerId
+where o.Id is null
+
+--solve 2 #####################################    
+select name as Customers from Customers where id not in (select customerId from orders)
+
+
+
+
+
