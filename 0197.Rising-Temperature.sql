@@ -18,8 +18,9 @@ SELECT * FROM #weather;
 
 
 
-
-
+select b.id from #weather a 
+left join #weather b on a.recordDate  = DATEADD(DAY,-1,b.recordDate)
+where a.temperature < b.temperature
 
 
 drop table #weather
