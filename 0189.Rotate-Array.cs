@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +6,7 @@ using System.Xml.Linq;
 
 namespace ConsoleApp1
 {
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
+   
     internal class Program
     {
 
@@ -25,8 +14,8 @@ namespace ConsoleApp1
         {
 
             // Example input: list of words
-            int[] words = { -1};
-            int k = 4;
+            int[] words = {1,2};
+            int k = 3;
 
        
             Program solution = new Program();
@@ -49,7 +38,7 @@ namespace ConsoleApp1
         {
             if (k>nums.Length)
             {
-                k = k- nums.Length;
+                k = k % nums.Length;
             }
 
             int[] my = new int[nums.Length];
