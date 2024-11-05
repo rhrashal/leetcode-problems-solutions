@@ -12,3 +12,9 @@ var createHelloWorld = function() {
  * const f = createHelloWorld();
  * f(); // "Hello World"
  */
+console.log(createHelloWorld()());
+
+// or 
+
+const hello = createHelloWorld();
+console.log(hello());
