@@ -13,7 +13,7 @@ const numbers = [1, 2, 3, 4, 5];
 
 // Function to be applied (e.g., doubling each element)
 const double = function(value, index) {
-    return value * 2;
+    return value + index;
 };
 
 // Call the map function
