@@ -22,5 +22,20 @@ select b.id from #weather a
 left join #weather b on a.recordDate  = DATEADD(DAY,-1,b.recordDate)
 where a.temperature < b.temperature
 
+-- USING LEG FUNCTION
+
+WITH q1 AS (
+  SELECT 
+      *,
+      LAG(temperature) OVER (ORDER BY recordDate) AS previous_day_temperature,
+      LAG(recordDate) OVER (ORDER BY recordDate) AS previous_Date
+  FROM #weather
+)
+
+SELECT id
+FROM q1
+WHERE temperature > previous_day_temperature
+AND DATEDIFF(day, previous_Date,recordDate) = 1;
+
 
 drop table #weather
