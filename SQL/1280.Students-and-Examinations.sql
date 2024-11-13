@@ -48,9 +48,24 @@ VALUES
 -- Select data to verify the insertion
 
 
-select s.student_id,s.student_name,e.subject_name,count(e.subject_name) from #students s
-inner join #examinations e on s.student_id = e.student_id
-group by s.student_id,s.student_name,e.subject_name
+/* Write your T-SQL query statement below */
+select s.student_id,s.student_name,s.subject_name,count(e.subject_name) attended_exams 
+from (
+		select s.student_id,s.student_name,sb.subject_name 
+		from Students s
+		cross join Subjects sb 
+) s
+left join Examinations e on s.student_id = e.student_id and s.subject_name = e.subject_name
+group by s.student_id,s.student_name,s.subject_name
+
+    --or
+
+    SELECT s.student_id, s.student_name, sub.subject_name, COUNT(e.student_id) AS attended_exams
+FROM Students AS s
+CROSS JOIN Subjects AS sub
+LEFT JOIN Examinations AS e ON s.student_id = e.student_id AND sub.subject_name = e.subject_name
+GROUP BY s.student_id, s.student_name, sub.subject_name
+ORDER BY s.student_id, sub.subject_name;
 
 
 drop table #students;
