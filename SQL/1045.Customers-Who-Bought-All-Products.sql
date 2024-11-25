@@ -34,7 +34,17 @@ group by customer_id
 having count(distinct product_key) = (select count(product_key) from #Product);
 
 
-
+---  sol - 2
+with product_count as(
+select customer_id,count(distinct product_key) as p_count from
+#customer
+group by customer_id)
+,
+intr_tbl as(
+select count(product_key) as cnt from #product
+)
+select customer_id from product_count
+where p_count=(select cnt from intr_tbl)
 
 
 DROP TABLE #Customer;
