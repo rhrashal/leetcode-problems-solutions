@@ -7,16 +7,28 @@ CREATE TABLE Employees (
     age INT
 );
 
-INSERT INTO Employees (employee_id, name, reports_to, age) 
+-- Insert data into Employees table
+
+---- FOR TEST 1
+INSERT INTO Employees (employee_id, name, reports_to, age)
 VALUES 
-(1, 'Michael', NULL, 45),
-(2, 'Alice', 1, 38),
-(3, 'Bob', 1, 42),
-(4, 'Charlie', 2,34),
-(5, 'David', 2,40),
-(6, 'Eve', 3, 37),
-(7, 'Frank', NULL, 50),
-(8, 'Grace', NULL, 48);
+(9, 'Hercy', NULL, 43),
+(6, 'Alice', 9, 41),
+(4, 'Bob', 9, 36),
+(2, 'Winston', NULL, 37);
+
+
+--- FOR TEST 2
+--INSERT INTO Employees (employee_id, name, reports_to, age) 
+--VALUES 
+--(1, 'Michael', NULL, 45),
+--(2, 'Alice', 1, 38),
+--(3, 'Bob', 1, 42),
+--(4, 'Charlie', 2,34),
+--(5, 'David', 2,40),
+--(6, 'Eve', 3, 37),
+--(7, 'Frank', NULL, 50),
+--(8, 'Grace', NULL, 48);
  
 --- FOR TEST 3
 --INSERT INTO Employees (employee_id, name, reports_to, age)
@@ -93,7 +105,6 @@ VALUES
 --(55, 'Sarah', 35, 24),
 --(83, 'Adam', 60, 38),
 --(49, 'Miriam', 40, 48);
-
 
 
 -- Select data to verify insertion
