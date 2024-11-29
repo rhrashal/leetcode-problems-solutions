@@ -53,7 +53,25 @@ VALUES
 
 
 
+select results FROM (
+SELECT TOP 1 u.name AS results      
+FROM #MovieRating mr
+INNER JOIN #Users u ON u.user_id = mr.user_id
+GROUP BY u.name
+ORDER BY COUNT(1) DESC, u.name ASC
+) a
 
+UNION ALL
+
+select results FROM (
+SELECT TOP 1 m.title AS results
+FROM #MovieRating mr
+INNER JOIN #Movies m ON m.movie_id = mr.movie_id
+WHERE MONTH(created_at) = 2 AND YEAR(created_at) = 2020
+GROUP BY m.title
+ORDER BY AVG(CAST(rating AS FLOAT)) DESC, m.title ASC
+
+) b
 
 
 
