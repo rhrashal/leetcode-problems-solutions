@@ -12,6 +12,7 @@ var reduce = function(nums, fn, init) {
 
 
 
+
 const arr = [10,20,30]
 let init = 100;
 // Function to be applied (e.g., doubling each element)
