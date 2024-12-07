@@ -10,6 +10,8 @@ class program
     {
         return s.Trim().Split(' ').Last().Length;
     }
+
+
     public static int LengthOfLastWord(string s)
     {
         string[] words = s.Split(' ').Where(e => e.Length > 0).ToArray();
