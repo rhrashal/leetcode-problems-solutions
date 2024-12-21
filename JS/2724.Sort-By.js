@@ -29,4 +29,7 @@ let sortedNumbers = sortBy(numbers, function(x) {
     return x;
 });
 
+
+
+
 console.log(sortedNumbers); // Output: [1, 4, 5, 8, 10]
