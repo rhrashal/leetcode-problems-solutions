@@ -21,7 +21,16 @@ namespace ConsoleApp1
         }
         public int SingleNumber(int[] nums)
         {
-            return nums[0];
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var newInt= nums.Where(e => e == nums[i]);
+                if (newInt.Count()>1)
+                {
+                    continue;
+                }
+                return nums[i];
+            }
+            return 0;
         }
 
     }
