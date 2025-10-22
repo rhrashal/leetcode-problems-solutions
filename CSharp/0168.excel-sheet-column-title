@@ -1,0 +1,44 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+class Program
+{
+
+ 
+    public static void Main()
+    {
+        //35834
+        string res = ConvertToTitle(27);
+        Console.WriteLine(res);
+
+        Console.ReadKey();
+    }
+
+    public static string ConvertToTitle(int columnNumber)
+    {
+        if (columnNumber <= 0)
+        {
+            return "";
+        }
+        string result = "";
+        string[] UpperCaseAlphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        for (int i = columnNumber; i > 0; )
+        {
+            int mod = i % 26;
+            if (mod==0)
+            {
+                mod = UpperCaseAlphabet.Length;
+            }
+            result = UpperCaseAlphabet[mod - 1] + result;
+            i = (i - mod) / 26;
+        }
+        return result;
+    }
+
+}
+
+
